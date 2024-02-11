@@ -32,14 +32,14 @@
         <main>
             <!-- Tab panes -->
             <?php
-            $no = $_GET['no'];
             $data = $conn->query("SELECT * FROM todo where no=$no");
             $d = mysqli_fetch_assoc($data);
             // var_dump($d);
             ?>
             <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                 <h4 class="mt-2">Edit Data</h4>
-                <form action="tambahData.php" method="POST">
+                <form action="update.php" method="POST">
+                    <input type="hidden" value="<?= $no ?>" name="no">
                     <div class="mb-3">
                         <label for="" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" name="nama" id="" aria-describedby="helpId"
