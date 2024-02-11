@@ -54,20 +54,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($data as $d) {
-                                } ?>
+                                <?php
+                                $data = mysqli_query($conn, "SELECT * FROM todo");
+                                foreach ($data as $d) {
+                                ?>
                                 <tr class="">
-                                    <td scope="row">R1C1</td>
-                                    <td>R1C2</td>
-                                    <td>R1C3</td>
+                                    <td scope="row"><?= $d['no'] ?></td>
+                                    <td><?= $d['nama_kegiatan'] ?></td>
+                                    <td><?= $d['deksripsi'] ?></td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
 
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    profile
+                    <form action="tambahData.php" method="POST">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" name="nama" id="" aria-describedby="helpId"
+                                placeholder="" />
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Deksripsi</label>
+                                <textarea class="form-control" name="deksripsi" id="" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-warning">Reset</button>
+                    </form>
                 </div>
                 <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                     messages
