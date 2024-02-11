@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <?php require "koneksiku.php"; ?>
 </head>
 
 <body>
@@ -22,13 +23,13 @@
                 <li class="nav-item" style="color: white" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
                         type="button" role="tab" aria-controls="home" aria-selected="true">
-                        Home
+                        Data Mhs
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">
-                        Profile
+                        Input Data
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -43,7 +44,27 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    home
+                    <div class="table-responsive">
+                        <table class="table table-primary mt-1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Kegiatan</th>
+                                    <th scope="col">Dekripsi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($data as $d) {
+                                } ?>
+                                <tr class="">
+                                    <td scope="row">R1C1</td>
+                                    <td>R1C2</td>
+                                    <td>R1C3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     profile
