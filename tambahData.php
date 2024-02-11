@@ -5,7 +5,8 @@ $nama = $_POST['nama'];
 $deksripsi = $_POST['deksripsi'];
 
 $query = "INSERT INTO todo (nama_kegiatan,deksripsi) VALUES ('$nama','$deksripsi')";
-$hasil = mysqli_query($conn, $query);
+// $hasil = mysqli_query($conn, $query);
+$hasil = $conn->query($query);
 
 if ($hasil) {
     mysqli_close($conn);

@@ -19,10 +19,10 @@
         <header>
             <!-- Nav tabs -->
             <ul class="nav nav-pills" style="background-color: yellow; border: 1px solid black; border-radius: 10px"
-                id="myTab" role="tablist">
+                id="" role="">
                 <li class="nav-item" style="color: white" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                        type="button" role="tab" aria-controls="home" aria-selected="true">
+                        type="button">
                         Data Mhs
                     </button>
                 </li>
@@ -30,12 +30,6 @@
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">
                         Input Data
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                        type="button" role="tab" aria-controls="messages" aria-selected="false">
-                        Messages
                     </button>
                 </li>
             </ul>
@@ -51,6 +45,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Kegiatan</th>
                                     <th scope="col">Dekripsi</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +57,7 @@
                                     <td scope="row"><?= $d['no'] ?></td>
                                     <td><?= $d['nama_kegiatan'] ?></td>
                                     <td><?= $d['deksripsi'] ?></td>
+                                    <td><a href="edit.php?no=<?= $d['no'] ?>" class="btn btn-warning">Edit</a></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -87,7 +83,22 @@
                     </form>
                 </div>
                 <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                    messages
+                    <h4 class="mt-2">Edit Data</h4>
+                    <form action="tambahData.php" method="POST">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nama Kegiatan</label>
+                            <input type="text" class="form-control" name="nama" id="" aria-describedby="helpId"
+                                placeholder="" />
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Deksripsi</label>
+                                <textarea class="form-control" name="deksripsi" id="" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-warning">Reset</button>
+                    </form>
                 </div>
             </div>
         </main>
