@@ -18,19 +18,19 @@
     session_start();
     if (isset($_SESSION['username'])) { ?>
     <div class="container">
-        <div class="position-absolute top-0 end-0">
+        <div class="position-absolute top-0 end-0 mt-5">
             <a href="logout.php" onclick="return confirm('Apakah anda yakin?')"
                 class="btn btn-danger rounded-pill mt-1 me-1" style="font-size: 13px;">LOGOUT</a>
         </div>
 
         <header>
             <!-- Nav tabs -->
-            <ul class="nav nav-pills" style="background-color: yellow; border: 1px solid black; border-radius: 10px"
-                id="" role="">
+            <ul class="nav nav-pills mt-5"
+                style="background-color: yellow; border: 1px solid black; border-radius: 10px" id="" role="">
                 <li class="nav-item" style="color: white" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
                         type="button">
-                        Data Mhs
+                        Daftar Kegiatan
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -46,16 +46,16 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="table-responsive">
-                        <table class="table table-primary mt-1">
+                        <table class="table table-border border-dark table-hover table-light mt-1">
                             <thead>
-                                <tr>
+                                <tr class="text-white">
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Kegiatan</th>
                                     <th scope="col">Dekripsi</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-group-divider">
                                 <?php
                                     $data = mysqli_query($conn, "SELECT * FROM todo");
                                     foreach ($data as $d) {
@@ -64,7 +64,11 @@
                                     <td scope="row"><?= $d['no'] ?></td>
                                     <td><?= $d['nama_kegiatan'] ?></td>
                                     <td><?= $d['deksripsi'] ?></td>
-                                    <td><a href="edit.php?no=<?= $d['no'] ?>" class="btn btn-warning">Edit</a></td>
+                                    <td class="text-center">
+                                        <a href="edit.php?no=<?= $d['no'] ?>" class="btn btn-outline-warning">Edit</a>
+                                        <a href="delete.php?no=<?= $d['no'] ?>"
+                                            class="btn btn-outline-danger">Delete</a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -111,6 +115,8 @@
         </main>
     </div>
     <?php
+    } else {
+        header("Location: login.php");
     }
     ?>
     <footer>
