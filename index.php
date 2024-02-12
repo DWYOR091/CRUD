@@ -14,11 +14,14 @@
 </head>
 
 <body>
-    <a href="logout.php">LOGOUT</a>
     <?php
     session_start();
-    echo $_SESSION['username']; ?>
+    if (isset($_SESSION['username'])) { ?>
     <div class="container">
+        <div class="position-absolute top-0 end-0">
+            <a href="logout.php" onclick="return confirm('Apakah anda yakin?')"
+                class="btn btn-danger rounded-pill mt-1 me-1" style="font-size: 13px;">LOGOUT</a>
+        </div>
 
         <header>
             <!-- Nav tabs -->
@@ -54,9 +57,9 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $data = mysqli_query($conn, "SELECT * FROM todo");
-                                foreach ($data as $d) {
-                                ?>
+                                    $data = mysqli_query($conn, "SELECT * FROM todo");
+                                    foreach ($data as $d) {
+                                    ?>
                                 <tr class="">
                                     <td scope="row"><?= $d['no'] ?></td>
                                     <td><?= $d['nama_kegiatan'] ?></td>
@@ -107,6 +110,9 @@
             </div>
         </main>
     </div>
+    <?php
+    }
+    ?>
     <footer>
         <!-- place footer here -->
     </footer>

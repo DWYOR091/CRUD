@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    ``
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,8 +20,7 @@
     </header>
     <main>
         <div class="d-flex justify-content-center align-items-center">
-            <div class="card">
-                <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+            <div class="card bg-black text-white">
                 <div class="card-body">
                     <p><?php
                         session_start();
@@ -29,18 +30,19 @@
                             unset($_SESSION['gagal']);
                         }
                         ?></p>
-                    <h4 class="card-title">LOGIN</h4>
+                    <h4 class="card-title text-center">LOGIN</h4>
                     <form action="masuk.php" method="POST">
                         <div>
                             <label for="">Username</label>
-                            <input type="text" name="username">
+                            <input type="text" name="username" class="form-control">
                         </div>
                         <div>
                             <label for="">password</label>
-                            <input type="password" name="password">
+                            <input type="password" name="password" class="form-control">
                         </div>
-                        <div>
-                            <button type="submit">Masuk</button>
+                        <div class="mx-auto px-5 mt-3">
+                            <button type="submit" class="btn btn-outline-info">Masuk</button>
+                            <button type="submit" class="btn btn-outline-warning">Reset</button>
                         </div>
                     </form>
                 </div>
