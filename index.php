@@ -14,6 +14,10 @@
 </head>
 
 <body>
+    <a href="logout.php">LOGOUT</a>
+    <?php
+    session_start();
+    echo $_SESSION['username']; ?>
     <div class="container">
 
         <header>
